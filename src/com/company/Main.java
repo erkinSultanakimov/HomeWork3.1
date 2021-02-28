@@ -8,14 +8,32 @@ public class Main {
 
 
         double[] numbers = new double[8];
-        numbers[0] = 1.1;
-        numbers[1] = 1.2;
-        numbers[2] = 1.3;
-        numbers[3] = 1.4;
+        numbers[0] = 1.5;
+        numbers[1] = 3.2;
+        numbers[2] = 2.3;
+        numbers[3] = 6.4;
         numbers[4] = -1.4;
-        numbers[5] = -1.5;
-        numbers[6] = -1.6;
-        numbers[7] = -1.7;
+        numbers[5] = -3.5;
+        numbers[6] = -5.6;
+        numbers[7] = -8.7;
+        System.out.println(Arrays.toString(numbers));
+        System.out.println("-------------------- До итерации");
+        for (int i = 0; i < numbers.length; i++) {
+            double numm = numbers[i];
+            for (int j = i - 1; j >= 0; j--) {
+                double leftNumber = numbers[j];
+                if (numm < leftNumber) {
+                    numbers[j + 1] = leftNumber;
+                    numbers[j] = numm;
+                } else {
+                    break;
+                }
+            } System.out.println(Arrays.toString(numbers));
+
+        }
+        System.out.println("-----------Конечная итерация");
+        System.out.println(Arrays.toString(numbers));
+
 
         int[] nums = {8, -2, -4, 2, 3, 6};
         double sum;
@@ -32,7 +50,7 @@ public class Main {
             }
             if (isNegative) {
                 nums[i] = 0;
-                count --;
+                count--;
             }
             nums[0] = 0;
             sum = sum + nums[i];
